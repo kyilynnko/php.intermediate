@@ -41,6 +41,7 @@ class Post extends Controller{
 
             $data['title'] = $_POST['title'];
             $data['description'] = $_POST['description'];
+            // $data['file'] = $_POST['file'];
             $data['content'] = $_POST['content'];
 
             if(empty($data['title'])){
@@ -49,13 +50,16 @@ class Post extends Controller{
             if(empty($data['description'])){
                 $data['description_err'] = "Description must supply!";
             }
+            // if(empty($_FILES['file'])){
+            //     $data['file_err'] = "File must supply!";
+            // }
             if(empty($data['content'])){
                 $data['content_err'] = "Content must supply!";
             }            
 
-            if(empty($data['title_err']) && empty($data['description_err']) && empty($data['content_err'])){
+            if(empty($data['title_err']) && empty($data['description_err']) && empty($data['content_err']) && isset($_POST['post'])){
                 if(!empty($files['name'])){
-                    move_uploaded_file($files['tmp_name'] , $root . '/public/assests/uploads/' . $files['name']);
+                    move_uploaded_file($files['tmp_name'] , $root . '/public/assets/uploads/' . $files['name']);
                     if($this->postModel->insertPost($_POST['cat_id'] , $data['title'] , $data['description'] , $files['name'] , $data['content'])){
                         flash('pis','Post Insert Successfully.');
                         redirect(URLROOT . "post/home/1");
@@ -112,9 +116,9 @@ class Post extends Controller{
                     $data['content_err'] = "Content must supply!";
                 }            
 
-                if(empty($data['title_err']) && empty($data['description_err']) && empty($data['content_err'])){
+                if(empty($data['title_err']) && empty($data['description_err']) && empty($data['content_err']) && isset($_POST['edit'])){
                     if(!empty($files['name'])){
-                        move_uploaded_file($files['tmp_name'] , $root . '/public/assests/uploads/' . $files['name']);
+                        move_uploaded_file($files['tmp_name'] , $root . '/public/assets/uploads/' . $files['name']);
                     }else{
                         $filename = $_POST['old_file'];
                     }
@@ -128,7 +132,11 @@ class Post extends Controller{
                         redirect(URLROOT . 'post/edit/' . $curId);
                     }
                 }else{
-                    $this->view('admin/post/create',$data);
+                    $curId = getCurrentId();
+                    deleteCurrentId();
+                    redirect(URLROOT . 'post/edit/' . $curId);
+
+
                 }
         }else{
             setCurrentId($params[0]);

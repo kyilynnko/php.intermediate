@@ -38,8 +38,8 @@
                         </div>
                         <div class="row justify-content-end no-gutters">
                             <div>
-                                <button class="btn btn-outline-secondary english">Cancle</button>
-                                <button class="btn btn-primary english">Post</button>
+                                <button class="btn btn-outline-secondary english" id="cancel" name="cancle">Cancle</button>
+                                <button class="btn btn-primary english " id="post" name="post">Post</button>
                             </div>
                         </div>
                     </form>

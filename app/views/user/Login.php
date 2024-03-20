@@ -24,8 +24,8 @@
                         <div class="row justify-content-between no-gutters">
                             <a href="<?php echo URLROOT . 'user/register' ?>"class="english">Not a user yet!, Please Register</a>
                             <div>
-                                <button class="btn btn-outline-secondary english">Cancle</button>
-                                <button class="btn btn-primary english">Login</button>
+                                <button class="btn btn-outline-secondary english" id="cancle" name="cancle">Cancle</button>
+                                <button class="btn btn-primary english" id="login" name="login">Login</button>
                             </div>
                         </div>
                     </form>

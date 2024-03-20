@@ -16,7 +16,7 @@
                     <h6 class="english"><?php echo $data['post']->title; ?></h6>
                 </div>
                 <div class="card-body">
-                    <img src="<?php echo URLROOT . 'assests/uploads/' . $data['post']->image; ?>" alt="">
+                    <img src="<?php echo URLROOT . 'assets/uploads/' . $data['post']->image; ?>" alt="">
                     <p>
                         <?php echo $data ['post']->content; ?>
                     </p>

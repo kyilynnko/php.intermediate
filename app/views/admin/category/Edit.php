@@ -1,6 +1,7 @@
 <?php require_once APPROOT . "/views/inc/Header.php"; ?>
 <?php require_once APPROOT . "/views/inc/Nav.php"; ?>
 
+
 <div class="container-fluid p-0">
     <div class="row no-gutters">
         <div class="col-md-3">
@@ -29,6 +30,7 @@
                     <!-- SideBar Menu end -->
                 </div>
             </div>
+
             <!-- SideBar end -->
         </div>
         <div class="col-md-5 offset-md-2 my-5">
@@ -45,8 +47,8 @@
                         </div>
                         <div class="row justify-content-end no-gutters">
                             <div>
-                                <button class="btn btn-outline-secondary english">Cancle</button>
-                                <button class="btn btn-primary english">Update</button>
+                                <button class="btn btn-outline-secondary english" id="cancle" name="cancle">Cancle</button>
+                                <button class="btn btn-primary english" id="update" name="update">Update</button>
                             </div>
                         </div>
                     </form>

@@ -44,7 +44,7 @@ class User extends Controller
                 }
             }
 
-            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err'])  && empty($data['confirm_password_err'])){
+            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err'])  && empty($data['confirm_password_err']) && isset($_POST['register'])){
                 if($this->userModel->register($data['name'],$data['email'],$data['password'])){
                     flash('register_success','Register success, please login.');
                     $this->view("user/login");
@@ -78,13 +78,17 @@ class User extends Controller
                 $data['password_err'] = "Password must be supply!";
             }
 
-            if(empty($data['email_err']) && empty($data['password_err'])){
+            if(empty($data['email_err']) && empty($data['password_err']) && isset($_POST['login'])){
                 $rowUser = $this->userModel->getUserByEmail($data['email']);
                 if($rowUser){
                     $hash_pass = $rowUser->password;
                     if(password_verify($data['password'] , $hash_pass)){
                         setUserSession($rowUser);
-                       redirect(URLROOT . 'admin/Home');
+                        if(getUserSession()->name=='kyi lynn ko'){
+                            redirect(URLROOT . 'admin/Home');
+                        }else{
+                            redirect(URLROOT . 'post/Home/1');
+                        }
                     }else{
                         flash("login_fail","User Creditial Error!");
                         $this->view('user/login');

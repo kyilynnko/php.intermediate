@@ -1,7 +1,7 @@
 <div class="container-fluid bg-dark">
     <nav class="container navbar navbar-expand-md navbar-light ">
-        <a class="navbar-brand text-white english" href="<?php echo URLROOT;?>">
-            <img class="ml-3" src="<?php echo  URLROOT.'/assests/imgs/logo.jpg'   ?>" width="40" height="40" alt="" class="rounded">
+        <a class="navbar-brand text-white english" href="<?php echo URLROOT . 'post/home/1';?>">
+            <img class="ml-3" src="<?php echo  URLROOT.'/assets/imgs/logo.jpg'   ?>" width="40" height="40" alt="" class="rounded">
             <span class="english p-3">First Code</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,6 @@
                     <?php else:?>
                         <?php ?>
                     <?php endif; ?>
-                
                 <?php endif;?>
                 <li class="nav-item">
                     <a class="nav-link text-white english" href="#">Features</a>

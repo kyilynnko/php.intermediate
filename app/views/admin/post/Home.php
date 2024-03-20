@@ -4,7 +4,13 @@
 <div class="container-fluid">
     <div class="container my-2">
         <?php flash('del_fail'); ?>
-        <a href="<?php echo URLROOT . 'post/create'; ?>" class = "btn btn-primary mb-2 english">Create</a>
+        <?php if(getUserSession()) : ?>
+            <?php if(getUserSession()->name=='kyi lynn ko'): ?>
+                <a href="<?php echo URLROOT . 'post/create'; ?>" class = "btn btn-primary mb-2 english">Create</a>
+            <?php else:?>
+                <?php ?>
+            <?php endif; ?>
+        <?php endif;?>
         <div class="row">
             <div class="col-md-4">
                 <ul class="list-group">
@@ -26,8 +32,14 @@
                             <p><?php echo $post->description; ?></p>
                             <div class="row justify-content-end no-gutters">
                                 <a href="<?php echo URLROOT . 'post/show/' . $post->id; ?>" class="english btn btn-success btn-sm text-white">Detail</a>
-                                <a href="<?php echo URLROOT . 'post/edit/' . $post->id; ?>"  class="english btn btn-warning btn-sm text-white ml-2">Edit</a>
-                                <a href="<?php echo URLROOT . 'post/delete/' . $post->id; ?>"  class="english btn btn-danger btn-sm text-white ml-2">Delete</a>
+                                <?php if(getUserSession()) : ?>
+                                    <?php if(getUserSession()->name=='kyi lynn ko'): ?>
+                                        <a href="<?php echo URLROOT . 'post/edit/' . $post->id; ?>"  class="english btn btn-warning btn-sm text-white ml-2">Edit</a>
+                                        <a href="<?php echo URLROOT . 'post/delete/' . $post->id; ?>"  class="english btn btn-danger btn-sm text-white ml-2">Delete</a>
+                                    <?php else:?>
+                                        <?php ?>
+                                    <?php endif; ?>
+                                <?php endif;?>
                             </div>
                         </div>
                     </div>

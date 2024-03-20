@@ -48,8 +48,8 @@
                         </div>
                         <div class="row justify-content-end no-gutters">
                             <div>
-                                <button class="btn btn-outline-secondary english">Cancle</button>
-                                <button class="btn btn-primary english">Update</button>
+                                <button class="btn btn-outline-secondary english" id="cancle" name="cancle">Cancle</button>
+                                <button class="btn btn-primary english" id="edit" name="edit">Edit</button>
                             </div>
                         </div>
                     </form>

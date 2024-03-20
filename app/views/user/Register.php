@@ -31,8 +31,8 @@
                         <div class="row justify-content-between no-gutters">
                             <a href="<?php echo URLROOT . 'user/login' ?>"class="english">Already Register, Please Login</a>
                             <div>
-                                <button class="btn btn-outline-secondary english">Cancle</button>
-                                <button class="btn btn-primary english">Register</button>
+                                <button class="btn btn-outline-secondary english" id="cancle" name="cancle">Cancle</button>
+                                <button class="btn btn-primary english" id="register" name="register">Register</button>
                             </div>
                         </div>
                     </form>
